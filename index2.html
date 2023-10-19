@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function findSeconds(time) {
+      const [hours, minutes, seconds] = time.split(":").map(Number);
+      return hours * 3600 + minutes * 60 + seconds;
+    }
+
+    function secondsToCurrentTime(seconds) {
+      const hours = Math.floor(seconds / 3600);
+      seconds %= 3600;
+      const minutes = Math.floor(seconds / 60);
+      seconds %= 60;
+      return hours + ":" + minutes + ":" + seconds;
+    }
+
+    const time1 = "2215:53:23";
+    const time2 = "674:08:32";
+
+    const seconds1 = findSeconds(time1);
+    const seconds2 = findSeconds(time2);
+    const totalSeconds = seconds1 + seconds2;
+
+    const hours = Math.floor(totalSeconds / 3600);
+
+    console.log(hours, "hours");
+
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+    console.log(minutes, "minutes");
+
+    const seconds = totalSeconds % 60;
+
+    console.log(seconds, "seconds");
+
+    const totalTime = [hours, minutes, seconds].join(":");
+
+    console.log(totalTime, "total time");
+  </script>
+</html>
